@@ -1,0 +1,304 @@
+
+*{
+    font-family: 'Monda', sans-serif;
+    font-family: 'Noto Serif Thai', serif;
+    font-family: 'Playfair Display', serif;
+    padding:0;
+    margin :0;
+	border: 0;
+	box-sizing: border-box;
+	
+}
+body{
+	background: rgb(0,0,0);
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(39,39,40,1) 50%, rgba(0,0,0,1) 100%);
+}
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),10%,90%);
+	--fg: hsl(var(--hue),10%,10%);
+	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+.loader {
+	background-color: var(--bg);
+	color: var(--fg);
+	font: 1em/1.5 sans-serif;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	transition: background-color 0.3s;
+}
+.loader {
+	padding: 1.5em 0;
+}
+
+.ap {
+	width: 8em;
+	height: 16em;
+}
+.ap__ring {
+	stroke: hsla(var(--hue),10%,10%,0.15);
+	transition: stroke 0.3s;
+}
+.ap__worm1,
+.ap__worm2 {
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+.ap__worm1 {
+	animation-name: worm1;
+}
+.ap__worm2 {
+	animation-name: worm2;
+	visibility: hidden;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),10%,10%);
+		--fg: hsl(var(--hue),10%,90%);
+	}
+	.ap__ring {
+		stroke: hsla(var(--hue),10%,90%,0.1);
+	}
+}
+
+/* Animtions */
+@keyframes worm1 {
+	from {
+		animation-timing-function: ease-in-out;
+		stroke-dashoffset: -87.96;
+	}
+	20% {
+		animation-timing-function: ease-in;
+		stroke-dashoffset: 0;
+	}
+	60% {
+		stroke-dashoffset: -791.68;
+		visibility: visible;
+	}
+	60.1%,
+	to {
+		stroke-dashoffset: -791.68;
+		visibility: hidden;
+	}
+}
+@keyframes worm2 {
+	from,
+	60% {
+		stroke-dashoffset: -87.96;
+		visibility: hidden;
+	}
+	60.1% {
+		animation-timing-function: cubic-bezier(0,0,0.5,0.75);
+		stroke-dashoffset: -87.96;
+		visibility: visible;
+	}
+	77% {
+		animation-timing-function: cubic-bezier(0.5,0.25,0.5,0.88);
+		stroke-dashoffset: -340;
+		visibility: visible;
+	}
+	to {
+		stroke-dashoffset: -669.92;
+		visibility: visible;
+
+	}
+}
+
+
+.head{
+	position:relative;
+	top:1em;
+}
+.head .img{
+	width: 60%;
+	margin: 0 auto;
+}
+.img img{
+	width: 100%;
+}
+
+/* text */
+
+
+.home{
+	width:100%;
+	margin-top: 3em;
+	
+}
+.home .img{
+	width: 100%;
+	position: relative;
+}
+.home .img img{
+	width: 100%;
+}
+
+.box{
+	margin: 2em auto;
+}
+.all{
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0 .5em;
+}
+.item{
+	width: 50%;
+	margin: .5em auto;
+}
+.item a{
+	text-decoration: none;
+}
+.social{
+	width: 15%;
+	margin: 1em auto;
+}
+.social a{
+	text-decoration: none;
+}
+.social img{
+	width: 100%;
+}
+h2{
+	text-align: center;
+	font-size: .8rem;
+	color: #505050;
+	padding: .5em 0;
+}
+hr{
+	color: #505050;
+margin: 0;}
+.glitch-wrapper {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: transparent;
+ }
+
+ .glitch {
+	position: relative;
+	font-size: 1.8rem;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #fff;
+	letter-spacing: 5px;
+	z-index: 1;
+ }
+ 
+ .glitch:before,
+ .glitch:after {
+	display: block;
+	content: attr(data-glitch);
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.8;
+ }
+ 
+ .glitch:before {
+	animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+	color: #0ff;
+	z-index: -1;
+ }
+ 
+ .glitch:after {
+	animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+	color: #ff00ff;
+	z-index: -2;
+ }
+ 
+ @keyframes glitch-color {
+	0% {
+	   transform: translate(0);
+	}
+ 
+	20% {
+	   transform: translate(-3px, 3px);
+	}
+ 
+	40% {
+	   transform: translate(-3px, -3px);
+	}
+ 
+	60% {
+	   transform: translate(3px, 3px);
+	}
+ 
+	80% {
+	   transform: translate(3px, -3px);
+	}
+ 
+	to {
+	   transform: translate(0);
+	}
+ }
+
+.head a{
+text-decoration: none;
+}
+@media screen and (min-width:700px) {
+	.item{
+		width: 33%;
+	}
+	.all{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.social{
+		width: 10%;
+	}
+	.head .img{
+		width: 35%;
+	}
+	#main{
+		width: 100%;
+	}
+}
+@media screen and (min-width:1000px) {
+.head{
+	width: 18%;
+	padding-left: 1em;
+}
+.head .img{
+	width: 100%;
+}
+.home{
+	margin-top: 0;
+}
+.item{
+	width: 20%;
+}
+#so{
+	width: 30%;
+	margin: 0 suto;
+}
+h2{
+	font-size: .6rem;
+	padding: .2em 0;
+}
+.social{
+	width: 15%;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
